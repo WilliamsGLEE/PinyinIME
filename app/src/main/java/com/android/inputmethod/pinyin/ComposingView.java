@@ -192,6 +192,12 @@ public class ComposingView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         float width;
         int height;
+
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
+
         height = mFmi.bottom - mFmi.top + mPaddingTop + mPaddingBottom;
 
         if (null == mDecInfo) {
@@ -218,6 +224,11 @@ public class ComposingView extends View {
             return;
         }
 
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
+
         float x, y;
         x = mPaddingLeft + LEFT_RIGHT_MARGIN;
         y = -mFmi.top + mPaddingTop;
@@ -232,6 +243,11 @@ public class ComposingView extends View {
     }
 
     private void drawCursor(Canvas canvas, float x) {
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
+
         mCursor.setBounds((int) x, mPaddingTop, (int) x
                 + mCursor.getIntrinsicWidth(), getHeight() - mPaddingBottom);
         mCursor.draw(canvas);
@@ -239,6 +255,11 @@ public class ComposingView extends View {
 
     private void drawForPinyin(Canvas canvas) {
         float x, y;
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
+
         x = mPaddingLeft + LEFT_RIGHT_MARGIN;
         y = -mFmi.top + mPaddingTop;
 

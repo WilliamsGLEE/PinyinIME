@@ -21,7 +21,6 @@ import android.content.res.Resources;
 import android.inputmethodservice.InputMethodService;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.os.SystemProperties;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -31,6 +30,8 @@ import android.view.View.OnTouchListener;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
+
+import com.android.inputmethod.pinyin.utils.SystemProperties;
 
 /**
  * The top container to host soft keyboard view(s).
@@ -196,6 +197,7 @@ public class SkbContainer extends RelativeLayout implements OnTouchListener {
             mBalloonOnKey = new BalloonHint(context, this, MeasureSpec.AT_MOST);
         }
 
+        Context mContext = getContext();
         mPopupSkb = new PopupWindow(mContext);
         mPopupSkb.setBackgroundDrawable(null);
         mPopupSkb.setClippingEnabled(false);
@@ -264,6 +266,7 @@ public class SkbContainer extends RelativeLayout implements OnTouchListener {
         int keyHeight = mEnvironment.getKeyHeight();
         int skbHeight = mEnvironment.getSkbHeight();
 
+        Context mContext = getContext();
         Resources r = mContext.getResources();
         if (null == mSkbFlipper) {
             mSkbFlipper = (ViewFlipper) findViewById(R.id.alpha_floatable);
@@ -331,6 +334,8 @@ public class SkbContainer extends RelativeLayout implements OnTouchListener {
     }
 
     private void popupSymbols() {
+        Context mContext = getContext();
+
         int popupResId = mSoftKeyDown.getPopupResId();
         if (popupResId > 0) {
             int skbContainerWidth = getWidth();

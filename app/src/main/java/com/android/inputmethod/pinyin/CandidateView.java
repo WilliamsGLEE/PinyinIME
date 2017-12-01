@@ -16,23 +16,23 @@
 
 package com.android.inputmethod.pinyin;
 
-import com.android.inputmethod.pinyin.PinyinIME.DecodingInfo;
-
-import java.util.Vector;
-
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.graphics.Paint.FontMetricsInt;
+import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.android.inputmethod.pinyin.PinyinIME.DecodingInfo;
+
+import java.util.Vector;
 
 /**
  * View to show candidate list. There two candidate view instances which are
@@ -361,6 +361,11 @@ public class CandidateView extends View {
     }
 
     private void onSizeChanged() {
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
+
         mContentWidth = getMeasuredWidth() - mPaddingLeft - mPaddingRight;
         mContentHeight = (int) ((getMeasuredHeight() - mPaddingTop - mPaddingBottom) * 0.95f);
         /**
@@ -408,6 +413,11 @@ public class CandidateView extends View {
 
     private boolean calculatePage(int pageNo) {
         if (pageNo == mPageNoCalculated) return true;
+
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
 
         mContentWidth = getMeasuredWidth() - mPaddingLeft - mPaddingRight;
         mContentHeight = (int) ((getMeasuredHeight() - mPaddingTop - mPaddingBottom) * 0.95f);
@@ -497,6 +507,11 @@ public class CandidateView extends View {
 
         mCandRects.removeAllElements();
 
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
+
         float xPos = mPaddingLeft;
         int yPos = (getMeasuredHeight() -
                 (mFmiCandidates.bottom - mFmiCandidates.top)) / 2
@@ -582,6 +597,11 @@ public class CandidateView extends View {
     }
 
     private float drawVerticalSeparator(Canvas canvas, float xPos) {
+        int mPaddingLeft = getPaddingLeft();
+        int mPaddingTop = getPaddingTop();
+        int mPaddingRight = getPaddingRight();
+        int mPaddingBottom = getPaddingBottom();
+
         mSeparatorDrawable.setBounds((int) xPos, mPaddingTop, (int) xPos
                 + mSeparatorDrawable.getIntrinsicWidth(), getMeasuredHeight()
                 - mPaddingBottom);

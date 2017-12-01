@@ -397,6 +397,11 @@ public class BalloonHint extends PopupWindow {
                 return;
             }
 
+            int mPaddingLeft = getPaddingLeft();
+            int mPaddingRight = getPaddingRight();
+            int mPaddingTop = getPaddingTop();
+            int mPaddingBottom = getPaddingBottom();
+
             int measuredWidth = mPaddingLeft + mPaddingRight;
             int measuredHeight = mPaddingTop + mPaddingBottom;
             if (null != mIcon) {
@@ -439,6 +444,10 @@ public class BalloonHint extends PopupWindow {
                 mIcon.draw(canvas);
             } else if (null != mLabel) {
                 float labelMeasuredWidth = mPaintLabel.measureText(mLabel);
+                int mPaddingLeft = getPaddingLeft();
+                int mPaddingRight = getPaddingRight();
+                int mPaddingTop = getPaddingTop();
+                int mPaddingBottom = getPaddingBottom();
                 float x = mPaddingLeft;
                 x += (width - labelMeasuredWidth - mPaddingLeft - mPaddingRight) / 2.0f;
                 String labelToDraw = mLabel;
